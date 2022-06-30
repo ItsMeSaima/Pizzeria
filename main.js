@@ -1,30 +1,26 @@
-menu_list_array = ["Veg Margherita Pizza",
-                        "Chicken Tandoori Pizza",
-                        "Veg Supreme Pizza",
-                        "Paneer Tikka Pizza",
-                        "Deluxe Veggie Pizza",
-                        "Veg Extravaganza Pizza"];
+	menu_list_array = ["Veg Margherita Pizza","Chicken Tandoori Pizza","Veg Supreme Pizza","Paneer Tikka Pizza","Deluxe Veggie Pizza","Veg Extravaganza Pizza"];
     
     function getmenu(){
-        var htmldata="";
+        var htmldata;
+        htmldata="<ol class='menulist'>"
         menu_list_array.sort();
         for(var i=0;i<menu_list_array.length;i++){
-            htmldata=htmldata+ menu_list_array[i] + '<br>'
+            htmldata=htmldata+'<li>' + menu_list_array[i] + '</li>'
         }
-        document.getElementById("Display_menu").innerHTML = htmldata;
-        //give the appropriate id name as display_menu 
+         htmldata=htmldata+"</ol>"
+         document.getElementById("display_menu").innerHTML = htmldata;
     }
 
     function add_item(){
         var htmldata;
-		var imgtags='<img id="im1" src="pizzaImg.png">'
         var item=document.getElementById("add_item").value;
-        // use the sort function as - menu_list_array.sort();
         menu_list_array.sort();
-        htmldata="";
+        htmldata="<section class='cards'>"
         for(var i=0;i<menu_list_array.length;i++){
-            htmldata=htmldata+imgtags+ menu_list_array[i]+'<br>';
+
+            htmldata=htmldata+'<div class="card">' +'<img src="images/pizzaImg.png"/>' + menu_list_array[i] + '</div>'
         }
+          htmldata=htmldata+"</section>"
          document.getElementById("display_addedmenu").innerHTML = htmldata;
 		
     }
@@ -34,3 +30,4 @@ function add_top(){
     menu_list_array.push(item);
 	add_item();
 }
+
